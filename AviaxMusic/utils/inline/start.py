@@ -3,34 +3,32 @@ from pyrogram.types import InlineKeyboardButton
 import config
 from AviaxMusic import app
 
-
-def start_panel(_):
+def start_panel(localization):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true"
+                text=localization["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true"
             ),
-            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text=localization["S_B_2"], url=config.SUPPORT_GROUP),
         ],
     ]
     return buttons
 
-
-def private_panel(_):
+def private_panel(localization):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_3"],
+                text=localization["S_B_3"],
                 url=f"https://t.me/{app.username}?startgroup=true",
             )
         ],
-        [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
+        [InlineKeyboardButton(text=localization["S_B_4"], callback_data="settings_back_helper")],
         [
-            InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
-            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text=localization["S_B_5"], user_id=config.OWNER_ID),
         ],
         [
-            InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL)
+            InlineKeyboardButton(text=localization["S_B_6"], url=config.SUPPORT_CHANNEL),
+            InlineKeyboardButton(text=localization["S_B_2"], url=config.SUPPORT_GROUP),
         ],
     ]
     return buttons
